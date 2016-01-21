@@ -2,31 +2,8 @@
 phpでelasticsearchのインデックスを参照する
 Elasticaと実装サンプル
 
+http://blog.livedoor.jp/tak_tak0/archives/52231724.html
 
-
-<?php
-require_once 'vendor/autoload.php';
-
-use Elastica\Client;
-use Elastica\Query;
-use Elastica\Query\QueryString;
-use Elastica\Search;
-
-$client = new Client();
-$index = $client->getIndex('index000');
-$type = $index->getType('jdbc');
-
-$search = new Search($client);
-
-$query = new QueryString('クエリー');
-$search->setQuery($query);
-$resultSet = $search->search();
-
-foreach ($resultSet as $res) {
-$d = $res->getData();
-print_r( $d );
-}
-?>
 
 
 
